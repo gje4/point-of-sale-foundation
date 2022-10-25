@@ -27,9 +27,9 @@ export default class BigBaseGql extends BigBaseApi {
         now.getTime()
         const expiresAt = Math.floor(now.getTime() / 1000)
         const { data }: ApiTokenResponse = await this.client.post('/storefront/api-token', {
-            channel_id: parseInt(BC_CHANNEL_ID || '1'),
+            channel_id: parseInt(BC_CHANNEL_ID),
             expires_at: expiresAt,
-            allowed_cors_origins: []
+            // allowed_cors_origins: []
         });
         const { token } = data.data;
         const jwtPayload = jwt.decode(token);
@@ -48,7 +48,12 @@ export default class BigBaseGql extends BigBaseApi {
     }
   protected async runQuery<T>(query: string, variables: any): Promise<T> {
         const jwtData = await this.getAccessToken();
-        const response = await axios.post(BC_GQL_URL, {
+      console.log("jwtData", jwtData)
+
+      console.log("variables", variables)
+      console.log("BC_GQL_URL", BC_GQL_URL)
+
+      const response = await axios.post(BC_GQL_URL, {
             query,
             variables,
         }, {
@@ -56,6 +61,8 @@ export default class BigBaseGql extends BigBaseApi {
                 'Authorization': `Bearer ${jwtData.accessToken}`
             }
         })
+
+      console.log("response", response)
         return response.data
   }
 }

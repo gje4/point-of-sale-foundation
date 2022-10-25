@@ -21,11 +21,14 @@ class ProductsController extends ApiRouteController {
    */
   public async run(_req?: NextApiRequest, res?: NextApiResponse): Promise<NextApiResponse | void> {
     const { cursor, pageSize, categoryId } = this.query;
+    console.log("weee here", categoryId)
+
     const products = await this.bigService.productsGQL.getAllProducts({
       cursor,
       pageSize,
       categoryId
     });
+    console.log("products", products)
     return res.json(products);
   }
 }

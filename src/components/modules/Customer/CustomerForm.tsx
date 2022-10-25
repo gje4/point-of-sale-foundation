@@ -70,10 +70,14 @@ export const CustomerForm = (): JSX.Element => {
                 >
                   <div className="mb-4">
                     <FormizInputText name="customer_name_search_value" label="Customer Name" />
+                    <FormizInputText name="customer_phone_number_search_value" label="Customer Phone Number" />
+                    <FormizInputText name="customer_cartid_search_value" label="Customer Cart Id" />
+
                   </div>
                   <FormizButton disabled={state.loaders.getCustomers} name="customer_search_btn" label="Lookup" type="submit" />
               </form>
             </Formiz>
+
           }
           {!state.loaders.getCustomers && state.customersLookupResult && 
             <>

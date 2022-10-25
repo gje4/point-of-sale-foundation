@@ -19,11 +19,13 @@ export default class ProductsGQL extends BigBaseGql {
       });
       return data.site.category.products;
     }
+    console.log("hmm")
     const { data }: PaginatedProductsResponse = await this.runQuery(getProductsQuery, {
-      categoryId,
       pageSize,
       cursor
     });
+    console.log("data")
+
     return data.site.products;
   }
   public async getProductById({ productId }) {

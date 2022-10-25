@@ -53,7 +53,8 @@ const Totals = ({ setTenderDialog }): JSX.Element => {
         onClick={async () => {
           // Get store address from settings for the consignment shipping address
           const storeAddress = await settingsContext.actions.getStoreAddress();
-          const orderId = await cartContext.actions.initCheckout(storeAddress, storeAddress.email);
+          console.log("storeAddress", storeAddress)
+          // const orderId = await cartContext.actions.initCheckout(storeAddress, storeAddress.email);
           //Display tender dialog
           setTenderDialog();
         }}

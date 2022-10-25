@@ -165,7 +165,10 @@ const ProductDetails = ({ product }): JSX.Element => {
     const itemToAdd = { ...catalogProduct };
 
     // Check if user has selected all options
-    if (selectedProductOptions.length == productOptions.edges.length) {
+    console.log("we", selectedProductOptions.length)
+    console.log("we here", productOptions.edges.length)
+
+    // if (selectedProductOptions.length == productOptions.edges.length) {
       const cart: CreateCart = {
         line_items: [
           {
@@ -179,6 +182,9 @@ const ProductDetails = ({ product }): JSX.Element => {
         ]
       };
 
+      console.log("cart", cart)
+
+
       if (cartContext.state.cart) {
         // Add to cart if cart exists
         await cartContext.actions.addCartLineItems(cartContext.state.cart.id, cart.line_items);
@@ -189,7 +195,7 @@ const ProductDetails = ({ product }): JSX.Element => {
 
       // Close modal
       onCancel();
-    }
+    // }
   };
 
   useEffect(() => {
@@ -241,7 +247,6 @@ const ProductDetails = ({ product }): JSX.Element => {
               const selectedOption = catalogProduct.selectedProductOptions.find(
                 option => node.entityId === option.id
               );
-
               {
                 switch (node.displayStyle) {
                   case "Swatch":
@@ -287,7 +292,6 @@ const ProductDetails = ({ product }): JSX.Element => {
       </div>
       <div>
         <p>&nbsp;</p>
-        <div>asdasd</div>
       </div>
     </>
   );

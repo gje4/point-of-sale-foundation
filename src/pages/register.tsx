@@ -41,6 +41,7 @@ const RegisterPage = (props): JSX.Element => {
       categoryId: router.query.categoryId
     });
 
+
     productContext.actions.getCategories().then(data => {
       if (!Array.isArray(router.query.categoryId)) {
         productContext.actions.updateBreadcrumbs(parseInt(router.query.categoryId));
