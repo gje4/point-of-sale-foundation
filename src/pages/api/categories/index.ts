@@ -14,7 +14,7 @@ class CategoriesController extends ApiRouteController {
   }
 
   /**
-   * Returns all employee records
+   * Returns all employee record
    */
   public async run(_req?: NextApiRequest, res?: NextApiResponse): Promise<NextApiResponse | void> {
     const categories = await this.bigService.productsGQL.getProductCategories();
