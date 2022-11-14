@@ -45,6 +45,40 @@ const Totals = ({ setTenderDialog }): JSX.Element => {
         </div>
       </div>
 
+        <Button
+            className="w-full disabled:opacity-50 mb-5"
+            theme="success"
+            loader={loaders}
+            disabled={loaders || !cartContext.state.cart?.id ? true : false}
+            onClick={async () => {
+                // Get store address from settings for the consignment shipping address
+                const storeAddress = await settingsContext.actions.getStoreAddress();
+                console.log("storeAddress", storeAddress)
+                // const orderId = await cartContext.actions.initCheckout(storeAddress, storeAddress.email);
+                //Display tender dialog
+                setTenderDialog();
+            }}
+        >
+            Text Quote{" "}
+        </Button>
+
+        <Button
+            className="w-full disabled:opacity-50 mb-5"
+            theme="success"
+            loader={loaders}
+            disabled={loaders || !cartContext.state.cart?.id ? true : false}
+            onClick={async () => {
+                // Get store address from settings for the consignment shipping address
+                const storeAddress = await settingsContext.actions.getStoreAddress();
+                console.log("storeAddress", storeAddress)
+                // const orderId = await cartContext.actions.initCheckout(storeAddress, storeAddress.email);
+                //Display tender dialog
+                setTenderDialog();
+            }}
+        >
+            Email{" "}
+        </Button>
+
       <Button
         className="w-full disabled:opacity-50"
         theme="success"

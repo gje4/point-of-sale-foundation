@@ -74,7 +74,8 @@ export const CustomerForm = (): JSX.Element => {
                     <FormizInputText name="customer_cartid_search_value" label="Customer Cart Id" />
 
                   </div>
-                  <FormizButton disabled={state.loaders.getCustomers} name="customer_search_btn" label="Lookup" type="submit" />
+                  <FormizButton  className="mb-4" disabled={state.loaders.getCustomers} name="customer_search_btn" label="Lookup" type="submit" />
+
               </form>
             </Formiz>
 
@@ -84,6 +85,10 @@ export const CustomerForm = (): JSX.Element => {
               <button
                 className="w-full px-6 py-4 mb-4 text-black border border-gray font-medium text-xs leading-tight uppercase rounded hover:bg-gray-100 focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                 onClick={() => actions.clearCustomersLookupResult()}>Clear Results
+              </button>
+              <button
+                  className="w-full px-6 py-4 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                  onClick={() => actions.clearCustomersLookupResult()}>Get Users Cart
               </button>
 
               {!state.customersLookupResult?.data?.length && 
@@ -109,6 +114,10 @@ export const CustomerForm = (): JSX.Element => {
                 >
                   <div>{customer.first_name} {customer.first_name}</div>
                   <div className="text-xs">{customer.email}</div>
+                  <div className="form-group mb-6">
+
+                  </div>
+
                 </div>
               ))}
             </>
