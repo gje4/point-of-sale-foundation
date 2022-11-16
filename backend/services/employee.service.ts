@@ -6,7 +6,7 @@ import { Employee } from "@prisma/client";
 @singleton()
 export class EmployeeService {
   /**
-   * Returns whether an employee exists for the given criteria.
+   * Returns wether an employee exists for the given criteria.
    * @param input The employee input criteria.
    * @returns Whether an employee exists.
    */
