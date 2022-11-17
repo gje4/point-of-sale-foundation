@@ -36,6 +36,7 @@ class LoginController extends ApiRouteController {
     const employee = await this.employeeService.getEmployee({
       pin: this.body.pin
     });
+    console.log("employee", employee)
     if (isNullOrUndefined(employee)) {
       throw new HttpError("Invalid employee PIN", HttpStatus.UNAUTHORIZED);
     }
